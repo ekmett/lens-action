@@ -1,0 +1,55 @@
+name:          lens-action
+category:      Data, Lenses, Generics
+version:       4.7
+license:       BSD3
+cabal-version: >= 1.8
+license-file:  LICENSE
+author:        Edward A. Kmett
+maintainer:    Edward A. Kmett <ekmett@gmail.com>
+stability:     provisional
+homepage:      http://github.com/ekmett/lens-action/
+bug-reports:   http://github.com/ekmett/lens-action/issues
+copyright:     Copyright (C) 2012-2014 Edward A. Kmett
+build-type:    Simple
+-- build-tools:   cpphs
+tested-with:   GHC == 7.8.3
+synopsis:      Monadic Getters and Folds
+description:
+  This package contains combinators and types for working with
+  monadic getters and folds as split off from the original
+  lens package.
+
+extra-source-files:
+  .travis.yml
+  .ghci
+  .gitignore
+  travis/cabal-apt-install
+  travis/config
+  CHANGELOG.markdown
+  README.markdown
+
+source-repository head
+  type: git
+  location: git://github.com/ekmett/lens-action.git
+
+library
+  build-depends:
+    lens                      >= 4.7      && < 5,
+    base                      >= 4.5      && < 5,
+    comonad                   >= 4        && < 5,
+    contravariant             >= 0.3      && < 2,
+    profunctors               >= 4        && < 5,
+    mtl                       >= 2.0.1    && < 2.3,
+    semigroups                >= 0.8.4    && < 1,
+    semigroupoids             >= 4        && < 5,
+    transformers              >= 0.2      && < 0.5
+
+  exposed-modules:
+    Control.Lens.Action
+    Control.Lens.Action.Internal
+    Control.Lens.Action.Reified
+
+  cpp-options: -traditional
+
+  ghc-options: -Wall -fwarn-tabs -O2 -fdicts-cheap -funbox-strict-fields -fmax-simplifier-iterations=10
+  hs-source-dirs: src
