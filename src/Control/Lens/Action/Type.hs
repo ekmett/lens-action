@@ -33,6 +33,7 @@ module Control.Lens.Action.Type
 import Control.Applicative (Applicative)
 import Control.Lens (Conjoined, Indexable)
 import Data.Functor.Apply (Apply)
+import Prelude ()
 
 import Control.Lens.Action.Internal (Effective)
 
