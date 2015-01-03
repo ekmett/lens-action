@@ -32,6 +32,11 @@ source-repository head
   type: git
   location: git://github.com/ekmett/lens-action.git
 
+-- You can disable the doctests test suite with -f-test-doctests
+flag test-doctests
+  default: True
+  manual: True
+
 library
   build-depends:
     lens                      >= 4.7      && < 5,
@@ -53,3 +58,22 @@ library
 
   ghc-options: -Wall -fwarn-tabs -O2 -fdicts-cheap -funbox-strict-fields -fmax-simplifier-iterations=10
   hs-source-dirs: src
+
+-- Verify the results of the examples
+test-suite doctests
+  type:           exitcode-stdio-1.0
+  main-is:        doctests.hs
+  ghc-options:    -Wall -threaded
+  hs-source-dirs: tests
+
+  if !flag(test-doctests)
+    buildable: False
+  else
+    build-depends:
+      base,
+      doctest        >= 0.9.1,
+      filepath,
+      directory
+
+  if impl(ghc<7.6.1)
+    ghc-options: -Werror
