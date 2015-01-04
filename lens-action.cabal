@@ -20,13 +20,9 @@ description:
   lens package.
 
 extra-source-files:
-  .travis.yml
   .ghci
   .gitignore
-  travis/cabal-apt-install
-  travis/config
   CHANGELOG.markdown
-  README.markdown
 
 source-repository head
   type: git
