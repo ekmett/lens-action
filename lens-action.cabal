@@ -1,6 +1,6 @@
 name:          lens-action
 category:      Data, Lenses, Generics
-version:       0.1
+version:       0.1.0.1
 license:       BSD3
 cabal-version: >= 1.8
 license-file:  LICENSE
@@ -49,6 +49,7 @@ library
     Control.Lens.Action
     Control.Lens.Action.Internal
     Control.Lens.Action.Reified
+    Control.Lens.Action.Type
 
   cpp-options: -traditional
 
