@@ -49,6 +49,7 @@ library
     Control.Lens.Action
     Control.Lens.Action.Internal
     Control.Lens.Action.Reified
+    Control.Lens.Action.Type
 
   cpp-options: -traditional
 
