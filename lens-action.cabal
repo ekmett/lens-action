@@ -71,6 +71,3 @@ test-suite doctests
       doctest        >= 0.9.1,
       filepath,
       directory
-
-  if impl(ghc<7.6.1)
-    ghc-options: -Werror
