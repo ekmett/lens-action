@@ -23,6 +23,7 @@ import qualified Control.Category as Cat
 import Control.Lens hiding ((<.>))
 import Control.Monad
 import Control.Monad.Reader.Class
+import Data.Functor.Contravariant
 import Data.Functor.Bind
 import Data.Functor.Plus
 import Data.Profunctor
@@ -48,10 +49,10 @@ instance Profunctor (ReifiedMonadicFold m) where
 
 instance Strong (ReifiedMonadicFold m) where
   first' l = MonadicFold $ \f (s,c) ->
-    coerce $ runMonadicFold l (dimap (flip (,) c) coerce f) s
+    phantom $ runMonadicFold l (dimap (flip (,) c) phantom f) s
   {-# INLINE first' #-}
   second' l = MonadicFold $ \f (c,s) ->
-    coerce $ runMonadicFold l (dimap ((,) c) coerce f) s
+    phantom $ runMonadicFold l (dimap ((,) c) phantom f) s
   {-# INLINE second' #-}
 
 instance Choice (ReifiedMonadicFold m) where
