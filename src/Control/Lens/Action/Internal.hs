@@ -108,7 +108,7 @@ instance (Apply m, Semigroup r) => Apply (Effect m r) where
   {-# INLINE (<.>) #-}
 
 instance (Applicative m, Monoid r) => Applicative (Effect m r) where
-  pure _ = Effect (return mempty)
+  pure _ = Effect (pure mempty)
   {-# INLINE pure #-}
   Effect ma <*> Effect mb = Effect (liftA2 mappend ma mb)
   {-# INLINE (<*>) #-}
