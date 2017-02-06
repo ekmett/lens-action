@@ -24,6 +24,12 @@ extra-source-files:
   .gitignore
   CHANGELOG.markdown
 
+custom-setup
+  setup-depends:
+    base          >= 4.3 && <5,
+    Cabal         >= 1.10,
+    cabal-doctest >= 1 && <1.1
+
 source-repository head
   type: git
   location: git://github.com/ekmett/lens-action.git
