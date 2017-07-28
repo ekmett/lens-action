@@ -1,3 +1,7 @@
+next
+----
+* Add a library dependency for the `doctests` test suite
+
 0.2.1
 -----
 * Revamp `Setup.hs` to use `cabal-doctest`. This makes it build
