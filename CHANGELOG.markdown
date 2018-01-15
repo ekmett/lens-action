@@ -1,3 +1,8 @@
+next
+----
+* Add an `Apply` context to the `Monoid` instance for `Effect`, fixing the
+  build on GHC 8.4.
+
 0.2.2
 -----
 * Add a library dependency for the `doctests` test suite
