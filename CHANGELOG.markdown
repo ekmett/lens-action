@@ -1,7 +1,7 @@
-next
-----
-* Add an `Apply` context to the `Monoid` instance for `Effect`, fixing the
-  build on GHC 8.4.
+0.2.3 [2018.01.18]
+------------------
+* Add an `Apply` context to the `Monoid` instance for `Effect`, allowing
+  `lens-action` to build against `lens-4.16`.
 
 0.2.2
 -----
