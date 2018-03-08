@@ -27,7 +27,9 @@ import Data.Functor.Contravariant
 import Data.Functor.Bind
 import Data.Functor.Plus
 import Data.Profunctor
+#if !(MIN_VERSION_base(4,11,0))
 import Data.Semigroup
+#endif
 
 import Control.Lens.Action
 
@@ -108,19 +110,19 @@ instance Alternative (ReifiedMonadicFold m s) where
   {-# INLINE (<|>) #-}
 
 instance Bind (ReifiedMonadicFold m s) where
-  ma >>- f = ((ma >>^ f) &&& returnA) >>> app 
+  ma >>- f = ((ma >>^ f) &&& returnA) >>> app
   {-# INLINE (>>-) #-}
 
 instance Monad (ReifiedMonadicFold m s) where
   return a = MonadicFold $ folding $ \_ -> [a]
   {-# INLINE return #-}
-  ma >>= f = ((ma >>^ f) &&& returnA) >>> app 
+  ma >>= f = ((ma >>^ f) &&& returnA) >>> app
   {-# INLINE (>>=) #-}
 
 instance MonadReader s (ReifiedMonadicFold m s) where
   ask = returnA
   {-# INLINE ask #-}
-  local f ma = f ^>> ma 
+  local f ma = f ^>> ma
   {-# INLINE local #-}
 
 instance MonadPlus (ReifiedMonadicFold m s) where
