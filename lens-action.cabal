@@ -67,8 +67,6 @@ library
     Control.Lens.Action.Reified
     Control.Lens.Action.Type
 
-  cpp-options: -traditional
-
   ghc-options: -Wall -fwarn-tabs -O2 -fdicts-cheap -funbox-strict-fields -fmax-simplifier-iterations=10
   hs-source-dirs: src
 

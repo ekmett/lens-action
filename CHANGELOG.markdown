@@ -1,3 +1,11 @@
+next [????.??.??]
+-----------------
+* Remove the use of `cpp-options: -traditional`. This should be unnecessary
+  on all versions of GHC that `lens` supports, as modern GHCs already use
+  `-traditional` internally during preprocessing. More critically, the use
+  of `cpp-options: -traditional` breaks profiling builds on GHC 8.8
+  (see https://gitlab.haskell.org/ghc/ghc/issues/17185).
+
 0.2.3 [2018.01.18]
 ------------------
 * Add an `Apply` context to the `Monoid` instance for `Effect`, allowing
