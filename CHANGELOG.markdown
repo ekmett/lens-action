@@ -1,5 +1,5 @@
-next [????.??.??]
------------------
+0.2.4 [2019.09.13]
+------------------
 * Remove the use of `cpp-options: -traditional`. This should be unnecessary
   on all versions of GHC that `lens` supports, as modern GHCs already use
   `-traditional` internally during preprocessing. More critically, the use
