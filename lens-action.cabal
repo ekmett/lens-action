@@ -58,9 +58,12 @@ library
     contravariant             >= 1.2.1    && < 2,
     profunctors               >= 4        && < 6,
     mtl                       >= 2.0.1    && < 2.3,
-    semigroups                >= 0.8.4    && < 1,
     semigroupoids             >= 4        && < 6,
     transformers              >= 0.2      && < 0.6
+
+  if impl(ghc < 8.0)
+    build-depends:
+      semigroups              >= 0.8.4    && < 1
 
   exposed-modules:
     Control.Lens.Action
