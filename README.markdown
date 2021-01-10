@@ -1,7 +1,7 @@
 lens-action
 ===========
 
-[![Hackage](https://img.shields.io/hackage/v/lens-action.svg)](https://hackage.haskell.org/package/lens-action) [![Build Status](https://secure.travis-ci.org/ekmett/lens-action.png?branch=master)](http://travis-ci.org/ekmett/lens-action)
+[![Hackage](https://img.shields.io/hackage/v/lens-action.svg)](https://hackage.haskell.org/package/lens-action) [![Build Status](https://github.com/ekmett/lens-action/workflows/Haskell-CI/badge.svg)](https://github.com/ekmett/lens-action/actions?query=workflow%3AHaskell-CI)
 
 This package contains combinators and types for working with monadic getters and folds as split off from the original `lens` package.
 
