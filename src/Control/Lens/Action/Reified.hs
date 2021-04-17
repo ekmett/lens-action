@@ -114,8 +114,10 @@ instance Bind (ReifiedMonadicFold m s) where
   {-# INLINE (>>-) #-}
 
 instance Monad (ReifiedMonadicFold m s) where
+#if !(MIN_VERSION_base(4,11,0))
   return a = MonadicFold $ folding $ \_ -> [a]
   {-# INLINE return #-}
+#endif
   ma >>= f = ((ma >>^ f) &&& returnA) >>> app
   {-# INLINE (>>=) #-}
 
