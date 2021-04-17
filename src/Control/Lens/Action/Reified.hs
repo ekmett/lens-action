@@ -138,8 +138,10 @@ instance Semigroup (ReifiedMonadicFold m s a) where
 instance Monoid (ReifiedMonadicFold m s a) where
   mempty = MonadicFold ignored
   {-# INLINE mempty #-}
+#if !(MIN_VERSION_base(4,11,0))
   mappend = (<|>)
   {-# INLINE mappend #-}
+#endif
 
 instance Alt (ReifiedMonadicFold m s) where
   (<!>) = (<|>)
