@@ -55,9 +55,7 @@ import Control.Monad (liftM)
 import Control.Monad.Trans.Class
 import Data.Profunctor
 import Data.Profunctor.Rep
-#if MIN_VERSION_profunctors(5,0,0)
 import Data.Profunctor.Sieve
-#endif
 import Data.Profunctor.Unsafe
 
 import Control.Lens.Action.Internal
@@ -138,11 +136,7 @@ a ^!?  l = liftM getLeftmost .# getEffect $ l (Effect #. return . LLeaf) a
 act :: Monad m => (s -> m a) -> IndexPreservingAction m s a
 act sma pafb = cotabulate $ \ws -> effective $ do
    a <- sma (extract ws)
-#if MIN_VERSION_profunctors(5,0,0)
    ineffective (cosieve pafb (a <$ ws))
-#else
-   ineffective (corep pafb (a <$ ws))
-#endif
 {-# INLINE act #-}
 
 -- | A self-running 'Action', analogous to 'Control.Monad.join'.
